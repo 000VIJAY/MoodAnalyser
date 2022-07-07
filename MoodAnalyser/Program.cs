@@ -1,5 +1,3 @@
 ﻿using MoodAnalyser;
-Analyser analy = new Analyser("I am sad");
+Analyser analy = new Analyser("I am Happy");
 Console.WriteLine(analy.MoodAnalyse());
-Analyser analyser = new Analyser("I am in any Mood");
-Console.WriteLine(analyser.Analyse());

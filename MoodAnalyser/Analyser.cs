@@ -9,6 +9,10 @@ namespace MoodAnalyser
     public class Analyser
     {
         string message;
+        public Analyser()
+        {
+            this.message = "";
+        }
         public Analyser(string message)
         {
            this.message = message;
@@ -19,14 +23,12 @@ namespace MoodAnalyser
             {
                 return "Sad";
             }
-            return null;
-        }
-        public string Analyse()
-        {
-            if (message.Contains("I am in any Mood"));
+          else
             {
+                message.Contains("Happy", StringComparison.OrdinalIgnoreCase);
                 return "Happy";
             }
+            return null;
         }
     }
 }
