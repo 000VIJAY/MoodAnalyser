@@ -20,5 +20,14 @@ namespace AnalyserTest
             string res = analyser.MoodAnalyse();
             Assert.AreEqual(expected,res);
         }
+        [TestMethod]
+        [DataRow(null)]
+        public void TestMethodTwo(string message)
+        {
+            Analyser analyser = new Analyser(message);
+            string expected = "Happy";
+            string res = analyser.MoodAnalyse();
+            Assert.AreEqual(expected, res);
+        }
     }
 }

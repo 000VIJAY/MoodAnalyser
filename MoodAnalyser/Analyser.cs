@@ -8,22 +8,38 @@ namespace MoodAnalyser
 {
     public class Analyser
     {
+<<<<<<< HEAD
         string message;
         public Analyser()
         {
             this.message = "";
         }
+=======
+       public string message;
+>>>>>>> ExceptionHandling
         public Analyser(string message)
         {
            this.message = message;
         }
         public string MoodAnalyse()
         {
-            if(message.Contains("Sad",StringComparison.OrdinalIgnoreCase))
+            try
             {
-                return "Sad";
+                if (message.Contains("Sad", StringComparison.OrdinalIgnoreCase))
+                {
+                    return "Sad";
+                }
+                else
+                {
+                    message.Contains("Happy", StringComparison.OrdinalIgnoreCase);
+                    return "Happy";
+                }
             }
+<<<<<<< HEAD
           else
+=======
+            catch
+>>>>>>> ExceptionHandling
             {
                 message.Contains("Happy", StringComparison.OrdinalIgnoreCase);
                 return "Happy";
