@@ -8,23 +8,23 @@ namespace MoodAnalyser
 {
     public class Analyser
     {
-<<<<<<< HEAD
-        string message;
-        public Analyser()
-        {
-            this.message = "";
-        }
-=======
        public string message;
->>>>>>> ExceptionHandling
-        public Analyser(string message)
+        public Analyser(string messag)
         {
-           this.message = message;
+           this.message = messag; 
         }
         public string MoodAnalyse()
         {
             try
             {
+                if (message == null)
+                {
+                    throw new MoodException("Mood should not Null", ExpType.nullval);
+                }
+                if (message.Length < 1 )
+                {
+                    throw new MoodException("Provided message is empty", ExpType.Empty);
+                }
                 if (message.Contains("Sad", StringComparison.OrdinalIgnoreCase))
                 {
                     return "Sad";
@@ -35,16 +35,10 @@ namespace MoodAnalyser
                     return "Happy";
                 }
             }
-<<<<<<< HEAD
-          else
-=======
-            catch
->>>>>>> ExceptionHandling
+            catch (MoodException ex)
             {
-                message.Contains("Happy", StringComparison.OrdinalIgnoreCase);
-                return "Happy";
+                return ex.Message;
             }
-            return null;
         }
     }
 }

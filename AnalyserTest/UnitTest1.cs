@@ -21,13 +21,32 @@ namespace AnalyserTest
             Assert.AreEqual(expected,res);
         }
         [TestMethod]
-        [DataRow(null)]
-        public void TestMethodTwo(string message)
+        public void EmptyMoodShouldThrowExceptionIndicatingEmptyMood()
         {
-            Analyser analyser = new Analyser(message);
-            string expected = "Happy";
-            string res = analyser.MoodAnalyse();
-            Assert.AreEqual(expected, res);
+            try
+            {
+                string message = "";
+                Analyser analyser = new Analyser(message);
+                string mood = analyser.MoodAnalyse();
+            }
+            catch(MoodException ex)
+            {
+                Assert.AreEqual("Provided message is empty", ex.Message);
+            }
+        }
+        [TestMethod]
+        public void NullMoodShouldThrowExceptionIndicatingNullMood()
+        {
+            try
+            {
+                string message = null;
+                Analyser analyser = new Analyser(message);
+                string mood = analyser.MoodAnalyse();
+            }
+            catch (MoodException ex)
+            {
+                Assert.AreEqual("Mood should not Null", ex.Message);
+            }
         }
     }
 }
